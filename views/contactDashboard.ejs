@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Navbar">
+        <div class="logoCarry">
+           <div class="circle2"></div>
+           <h2><span style="color: white;">C</span>onnectify</h2>
+        </div>
+        <ul>
+  
+            
+            <li><a href="/data">Home</a></li>
+            <li><a href="/post">Post</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="dashboardContainer">
+        <div class="dashboardIntro">
+            <div class="dashboardName">
+                <h3><%=Name%></h3>
+                <p><%=specification%></p>
+                <p><%=place%></p>
+            </div>
+            <div class="dashboardImage" style="background-image: url('/uploads/<%=ID%>.png');">
+            </div>
+            <div class="dashboardLinks">
+                <ul>
+                    <li><a href="/dashboard/contact">Contact Info</a></li>
+                    <li><a href="/dashboard/Responses">Responses</a></li>
+                    <li><a href="/dashboard">Posts</a></li>
+                    <li><a href="/request">Request Status</a></li>
+                </ul>
+            </div>
+       </div>
+       <div class="contactPage">
+           <div class="contactPageTitle">
+           <h2>Your Information</h2>
+           <p>To Update, Change the value and Save</p>
+           </div>
+           <form action="/dashboard/contact" method="POST">
+                <div class="form1">
+                    <label style="font-size: 20px; font-style: bold;" for="email" >Your Email</label>
+                    <input type="email" name="email" value="<%=Email%>">
+                </div>
+                <div class="form1">
+                    <label style="font-size: 20px; font-style: bold;" for="name">Your Name</label>
+                    <input type="text" name="name" value="<%=Name%>">
+                </div>
+                <div class="form1">
+                    <label style="font-size: 20px; font-style: bold;" for="Phone">Phone No.</label>
+                    <input type="text" name="phone" value="<%=phone%>">
+                </div>
+                <div class="form1">
+                    <label style="font-size: 20px; font-style: bold;" for="Phone">You Are . </label>
+                    <input type="text" name="specification" value="<%=specification%>">
+                </div>
+                <div class="form1">
+                    <label style="font-size: 20px; font-style: bold;" for="Phone">You Are From</label>
+                    <input type="text" name="place" value="<%=place%>">
+                </div>
+                <button type="submit">Save</button>
+           </form>
+           <h3 style="margin-left: 150px; margin-bottom: 10px;">Upload Your Profile Picture:</h3>
+           <form action="/temp" method="POST"  encType="multipart/form-data">
+            <input type="file" name="image">
+            <button type="submit">Submit</button>
+          </form>
+       </div>
+    </div>
+</body>
+</html>
