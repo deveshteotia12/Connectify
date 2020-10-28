@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Navbar">
+        <div class="logoCarry">
+           <div class="circle2"></div>
+           <h2><span style="color: white;">C</span>onnectify</h2>
+        </div>
+        <ul>
+  
+            
+            <li><a href="/data">Home</a></li>
+            <li><a href="/post">Post</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+   <div class="postPostContainer">
+    <div class="postPost">
+        <div>
+            <h3>You can Post, to merge with the people of your interest</h3>
+        </div>
+        <form action="/post" method="POST">
+            <div class="inputContainer">
+                <label>Category</label>
+                <input type="text" name="Category" placeholder="For example- Web development Machine Learning As&A levels" required></input>
+            </div>
+            <div class="inputContainer">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="It should explain your requirement" required></input>
+            </div>
+            <div class="inputContainer">
+                <label>More Info</label>
+                <textarea type="text" placeholder="Explain it a bit" name=info rows="4" required></textarea>
+            </div>
+               <button type="submit">Post</button>
+        </form>
+     </div>
+    </div>
+</body>
+</html>

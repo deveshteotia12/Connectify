@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    
+    width: 100vw;
+}
+nav{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   background-color: burlywood;
+   position: relative;
+}
+h2{
+    margin-left: 30px;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    padding: 8px 13px;
+}
+a:hover{
+    cursor: pointer;
+}
+.dropdown{
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    nav{
+        flex-direction: column;
+    }
+    ul{
+        flex-direction: column;
+        display: none;
+    }
+    .dropdown{
+        display: block;
+    }
+}
+@media only screen and (min-width: 600px) {
+    
+    ul{
+        flex-direction: row;
+        display: flex;
+    }
+    
+}
+

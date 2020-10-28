@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Navbar">
+        <div class="logoCarry">
+           <div class="circle2"></div>
+           <h2><span style="color: white;">C</span>onnectify</h2>
+        </div>
+        <ul>
+            <li><a href="/data">Home</a></li>
+            <li><a href="/post">Post</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="dashboardContainer">
+        <div class="dashboardIntro">
+                <div class="dashboardName">
+                    <h3><%=Name%></h3>
+                    <p><%=specification%></p>
+                    <p><%=place%></p>
+                </div>
+            <div class="dashboardImage" style="background-image: url('/uploads/<%=ID%>.png');">
+            </div>
+            <div class="dashboardLinks">
+                <ul>
+                    <li><a href="/dashboard/contact">Contact Info</a></li>
+                    <li><a href="/dashboard/Responses">Responses</a></li>
+                    <li><a href="/dashboard">Posts</a></li>
+                    <li><a href="/request">Request Status</a></li>
+                </ul>
+            </div>
+       </div>
+       <div class="dashboardRender">
+          
+        <div class="postContainer">
+             <h1>Your Requests</h1>
+            <div class="posts">
+              <%if(posts.length>0){%>
+               <%for(var i=0;i<posts.length;i++){%>
+                  <div class="subpost">
+                       <h3>Status: <%=posts[i].Status.status%></h3>
+                       <p>Your Message: <%=posts[i].Information%></p>
+                       <p>Date: <%=posts[i].Date%></p>
+                       <%if(posts[i].Status.Message!=""){%>
+                           <p style="margin-top: 8px;">Message By <%=posts[i].QuestionDetail.Name%>: <%=posts[i].Status.Message%></p>
+                       <%}%>
+                       <button onclick="myFunc('<%=posts[i].questionID%>')">You Responded To</button>
+                       <div style="display: none;" class="responseQuestion" id="<%=posts[i].questionID%>">
+                            <h3><%=posts[i].QuestionDetail.Title%></h3>
+                            <p class="postDetails"><%=posts[i].QuestionDetail.Information%></p>
+                            <p >By: <a href="/profile/<%=posts[i].QuestionDetail.ID%>"><%=posts[i].Name%></a></p>
+                       </div>
+                  </div> 
+                <%}%>
+                <%}else{%>
+                    <p>There are no Pending Requests Yet.</p>
+                <%}%>
+            </div>
+           </div>
+         
+       </div>
+    </div>
+   <script>
+       function myFunc(ID)
+       {
+           var x=document.getElementById(ID);
+           if(x.style.display==="none")
+           {
+               x.style.display="block";
+           }
+           else{
+               x.style.display="none";
+           }
+       }
+   </script>
+</body>
+</html>

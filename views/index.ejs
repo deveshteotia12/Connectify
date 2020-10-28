@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/index.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/87ca64a1d2.js"></script>
+</head>
+<body>
+<div class="indexPage">
+  <div class="Navbar">
+    <div class="logoCarry">
+       <div class="circle2"></div>
+       <h2><span style="color: white;">C</span>onnectify</h2>
+    </div>
+    <ul>
+
+        
+        <li><a href="/data">Home</a></li>
+        <li><a href="/post">Post</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    <button class="dropdown" onclick="create()">Down</button>
+  </div>
+  <div class="filter">
+    <form action="/filter" method="POST">
+        <input placeholder="Filter Your Field" type="text" name="filter"></input>
+        <button type="submit"><i class="fa fa-filter" aria-hidden="true"></i></button>
+    </form>
+  </div>
+  <div class="postContainer">
+    <div class="posts">
+      <%if(posts.length>0){%>
+       <%for(var i=0;i<posts.length;i++){%>
+          <div class="subpost">
+               <h3><%=posts[i].Title%></h3>
+               <p class="postDetails"><%=posts[i].Information%></p>
+               <p class="postedBy">By: <a href="/profile/<%=posts[i].ID%>"><%=posts[i].Name%></a></p>
+              <button  onclick="myfunc('<%=posts[i].uniqueID%>')" type="submit">Respond</button>
+          <div style="display: none;" class="formResponse" id="<%=posts[i].uniqueID%>">
+            <form action="/data/request" method="POST">
+              <input type="text" name="email" placeholder="Email Address">
+              <input type="text" name="phone" placeholder="Phone Number">
+              <textarea type="text" name="Information" placeholder="Additional Information" ></textarea>
+              <input style="display: none" name="questionID" value="<%=posts[i].uniqueID%>">
+              <button name="requestTo" value="<%=posts[i].ID%>" type="submit">Send</button>
+            </form>
+          </div>
+          </div>
+          
+        <%}%>
+        <%}else{%>
+            <p>No Posts to Show</p>
+        <%}%>
+    </div>
+   </div>
+    
+</div>
+       <script>
+         function myfunc(parameter)
+         {
+           console.log(parameter)
+            var x=document.getElementById(parameter);
+            if(x.style.display==="none")
+            {
+              x.style.display="block"
+            }else{
+              x.style.display="none"
+            }
+         }
+       </script>
+</body>
+</html>

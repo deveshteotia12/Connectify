@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Navbar">
+        <div class="logoCarry">
+           <div class="circle2"></div>
+           <h2><span style="color: white;">C</span>onnectify</h2>
+        </div>
+        <ul>
+            <li><a href="/data">Home</a></li>
+            <li><a href="/post">Post</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        
+    </div>
+    <div class="dashboardContainer">
+        <div class="dashboardIntro">
+                <div class="dashboardName">
+                    <h3><%=Name%></h3>
+                    <p><%=specification%></p>
+                    <p><%=place%></p>
+                </div>
+            <div class="dashboardImage" style="background-image: url('/uploads/<%=ID%>.png');">
+            </div>
+            <div class="dashboardLinks">
+                <ul>
+                    <li><a href="/dashboard/contact">Contact Info</a></li>
+                    <li><a href="/dashboard/Responses">Responses</a></li>
+                    <li><a href="/dashboard">Posts</a></li>
+                    <li><a href="/request">Request Status</a></li>
+                </ul>
+            </div>
+       </div>
+       <div class="dashboardRender">
+          
+        <div class="postContainer">
+             <h1>Your Posts</h1>
+            <div class="posts">
+              <%if(posts.length>0){%>
+               <%for(var i=0;i<posts.length;i++){%>
+                  <div class="subpost">
+                       <h3><%=posts[i].Title%></h3>
+                       <p><%=posts[i].Information%></p>
+                       <p>Posted By: <%=posts[i].Name%></p>
+                       <form action="/delete/<%=posts[i].uniqueID%>" method="POST">
+                          <button type="submit">Delete</button>
+                       </form>
+                  </div> 
+                   
+                <%}%>
+                <%}else{%>
+                    <p>No Posts to Show</p>
+                <%}%>
+            </div>
+           </div>
+         
+       </div>
+    </div>
+   
+</body>
+</html>
