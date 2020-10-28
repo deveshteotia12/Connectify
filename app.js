@@ -233,7 +233,7 @@ app.post("/signup",async (req,res)=>{
             place: ""
          }]
        })
-       object.save().then(()=>res.redirect("/"));
+       object.save().then(()=>res.redirect("/login"));
     }
     catch
     {
@@ -260,7 +260,6 @@ app.post("/post",function(req,res){
             {
                 data.Search.push(obj);
                 data.save().then(()=>res.redirect("/data"))
-                
             }
         }
     })
@@ -504,6 +503,8 @@ function checkNotAuthenticated(req,res,next){
         next();
     }
 }
-app.listen(3000,()=>{
-    console.log("Listening on Port 3000");
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);

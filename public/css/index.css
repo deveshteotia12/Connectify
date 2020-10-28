@@ -184,7 +184,6 @@ body{
   width: 100%;
   display: flex;
   justify-content: space-between;
-  
   align-items: center;
 }
 .Navbar ul{
@@ -228,7 +227,27 @@ body{
     font-family: 'Poppins', sans-serif;
     letter-spacing: 0.3rem;
 }
-
+.dropdown{
+    position: absolute;
+    right: 0;
+    display: none;
+}
+@media only screen and (max-width: 850px) {
+    .Navbar{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-right: 0;
+        
+    }
+    .Navbar ul{
+        display: none;
+    }
+    .dropdown{
+        display: block;
+    }
+}
 
 .filter{
     width: 100%;
