@@ -28,5 +28,5 @@ So, connectify just helps people with similar interests to Connect,create and Co
   MONGODB<br>
   
 ## LIVE AT
-   https://aqueous-escarpment-15783.herokuapp.com/login
+   https://aqueous-escarpment-15783.herokuapp.com/
   
